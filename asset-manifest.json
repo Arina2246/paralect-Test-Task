@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/paralect-Test-Task/static/css/main.31d6cfe0.css",
+    "main.js": "/paralect-Test-Task/static/js/main.948ab749.js",
+    "index.html": "/paralect-Test-Task/index.html",
+    "main.948ab749.js.map": "/paralect-Test-Task/static/js/main.948ab749.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.948ab749.js"
+  ]
+}
