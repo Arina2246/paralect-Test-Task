@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { MantineProvider } from '@mantine/core';
 import './index.css';
@@ -10,8 +9,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <MantineProvider>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    <RouterProvider router={router} />
   </MantineProvider>
 );

@@ -1,6 +1,7 @@
 import {
   URL_AUTH,
   URL_VACANCIES,
+  URL_CATALOGUES,
   LOGIN,
   PASSWORD,
   CLIENT_ID,
@@ -19,10 +20,6 @@ async function authorization() {
     const response = await fetch(url, {
       headers: REQUIRED_HEADERS,
     });
-
-    if (!response.ok) {
-      throw new Error();
-    }
 
     const responseData = (await response.json()) as AuthResponse;
     const authData: AuthData = {
@@ -73,14 +70,21 @@ export async function getVacancies(
       headers: headers,
     });
 
-    if (!response.ok) {
-      throw new Error();
-    }
-
     const responseData = (await response.json()) as VacanciesResponse;
     const vacanciesData = responseData.objects;
 
     return vacanciesData;
+  } catch (error: unknown) {
+    throw new Error();
+  }
+}
+
+export async function getCatalogues() {
+  try {
+    const response = await fetch(URL_CATALOGUES, {
+      headers: REQUIRED_HEADERS,
+    });
+    return response.json();
   } catch (error: unknown) {
     throw new Error();
   }

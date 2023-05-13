@@ -35,4 +35,9 @@ type VacanciesResponse = {
   total: number;
 };
 
-export type { AuthResponse, VacanciesResponse, Vacancy, AuthData };
+type Catalogue = {
+  key: number;
+  title_trimmed: string;
+};
+
+export type { AuthResponse, VacanciesResponse, Vacancy, AuthData, Catalogue };
