@@ -2,68 +2,85 @@ header{
     background-color: white;
     height: 84px;
     display: flex;
-    justify-content: center;
     align-items: center;
     color: #232134;
-    flex-wrap: wrap;
 }
 
 header > div{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 280px;
-}
+    gap: 12px;
 
-header > div > span{
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
     line-height: 36px;
     margin-left: 12px;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.1px;
+
+    margin-left: 11.2%;
 }
 
 nav{
     display: flex;
+    position: absolute;
     align-items: center;
     justify-content: center;
     gap: 60px;
+
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+
+    top: 42px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 }
 
 nav > a.active {
     color: #5E96FC;
 }
 
-@media screen and (max-width: 1439px)  and (min-width: 550px)  {
+@media screen and (max-width: 900px)  and (min-width: 550px)  {
+    header {
+        justify-content: center;
+        gap: 15%;
+    }
+
     nav{
-        margin-right: 0%;
-        gap: 25%;
-        white-space: nowrap; 
+        position: static;
+        margin-right: 0;
+        left: 0;
+        transform: translate(0%, 0%)
     }
 
     header > div {
-        margin-right: 21%;
+        margin-left: 0%;
     }  
 }
 
 @media screen and (max-width: 550px) {
-    header{
-        padding: 0 15px;
+    header {
+        height: 140px;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
     }
 
     nav{
-        margin-right: 0%;
-        gap: 5%;
+        position: static;
+        margin-right: 0;
+        left: 0;
+        transform: translate(0%, 0%)
     }
 
     header > div {
-        margin-right: 10%;
+        margin-left: 0%;
     }  
-}
+} 
+
