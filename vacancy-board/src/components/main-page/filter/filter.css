@@ -1,5 +1,63 @@
-.filter-input-wrapper{
-    width: 220px;
+.filter {
+    font-family: 'Inter';
+    background: #FFFFFF;
+    color: #232134;
+    border: 1px solid #EAEBED;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 19px;
+    gap: 20px;
+    width: 315px;
+}
+
+.filter section:first-child {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 0px;
+}
+
+.filter section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter > section:first-child > span {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.filter > section > span {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.filter > section > button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ACADB9;
+}
+
+.filter > button {
+    padding: 4px 20px;
+    width: 275px;
+    height: 40px;
+    background: #5E96FC;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
 }
 
 

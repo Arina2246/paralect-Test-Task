@@ -57,3 +57,10 @@ textarea,
 select {
   font: inherit;
 }
+
+button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: inherit;
+}

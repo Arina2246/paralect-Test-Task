@@ -24,22 +24,20 @@ export default function CategoryFilter() {
   }, []);
 
   return (
-    <div className='filter-input-wrapper'>
-      <MultiSelect
-        onChange={(value) => console.log(value)}
-        size='xs'
-        radius={6}
-        data={categories}
-        placeholder='Выберите отрасль'
-        rightSection={
-          <Image
-            src='select-icon.png'
-            alt='select-icon'
-            width={19}
-          />
-        }
-        rightSectionWidth={34}
-      />
-    </div>
+    <MultiSelect
+      onChange={(value) => console.log(value)}
+      size='md'
+      radius={8}
+      data={categories}
+      placeholder='Выберите отрасль'
+      rightSection={
+        <Image
+          src='select-icon.png'
+          alt='select-icon'
+          width={25}
+        />
+      }
+      rightSectionWidth={47}
+    />
   );
 }

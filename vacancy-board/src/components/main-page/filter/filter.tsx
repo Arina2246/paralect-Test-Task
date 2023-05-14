@@ -5,9 +5,26 @@ import './filter.css';
 export default function Filter() {
   return (
     <div className='filter'>
-      <CategoryFilter />
-      <SalaryFilter placeholder={'От'} />
-      <SalaryFilter placeholder={'До'} />
+      <section>
+        <span>Фильтры</span>
+        <button>
+          <span>Сбросить все </span>
+          <img
+            src='close-icon.png'
+            alt='close-icon'
+          />
+        </button>
+      </section>
+      <section>
+        <span>Отрасль</span>
+        <CategoryFilter />
+      </section>
+      <section>
+        <span>Оклад</span>
+        <SalaryFilter placeholder={'От'} />
+        <SalaryFilter placeholder={'До'} />
+      </section>
+      <button>Применить</button>
     </div>
   );
 }
