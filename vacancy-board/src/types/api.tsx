@@ -13,7 +13,8 @@ type AuthData = {
   expiresIn: number;
 };
 
-type Vacancy = {
+type VacancyResponse = {
+  id: number;
   profession: string;
   town: {
     title: string;
@@ -29,7 +30,7 @@ type Vacancy = {
 
 type VacanciesResponse = {
   more: boolean;
-  objects: Vacancy[];
+  objects: VacancyResponse[];
   subscription_active: boolean;
   subscription_id: number;
   total: number;
@@ -40,4 +41,10 @@ type Catalogue = {
   title_trimmed: string;
 };
 
-export type { AuthResponse, VacanciesResponse, Vacancy, AuthData, Catalogue };
+export type {
+  AuthResponse,
+  VacanciesResponse,
+  VacancyResponse,
+  AuthData,
+  Catalogue,
+};

@@ -9,7 +9,7 @@
     flex-direction: column;
     padding: 23px;
     gap: 13px;
-    width: 773px;
+    width: 100%;
     height: 137px;
     cursor: pointer;
 }
@@ -54,4 +54,14 @@
     position: absolute;
     width: 24px;
     right: 24px;
+}
+
+@media screen and (max-width: 1300px)  and (min-width: 0px)  {
+    .vacancy-card {
+        height: inherit;
+    }
+
+    .vacancy-card p{
+        width: 90%;
+    } 
 }

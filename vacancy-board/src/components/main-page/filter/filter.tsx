@@ -2,7 +2,12 @@ import CategoryFilter from './category-filter/category-filter';
 import SalaryFilter from './salary-filter/salary-filter';
 import './filter.css';
 
-export default function Filter() {
+export default function Filter(props: {
+  setCategories: React.Dispatch<React.SetStateAction<string>>;
+  setPaymentFrom: React.Dispatch<React.SetStateAction<string>>;
+  setPaymentTo: React.Dispatch<React.SetStateAction<string>>;
+  getVacancies: () => void;
+}) {
   return (
     <div className='filter'>
       <section>
@@ -17,14 +22,20 @@ export default function Filter() {
       </section>
       <section>
         <span>Отрасль</span>
-        <CategoryFilter />
+        <CategoryFilter setCategories={props.setCategories} />
       </section>
       <section>
         <span>Оклад</span>
-        <SalaryFilter placeholder={'От'} />
-        <SalaryFilter placeholder={'До'} />
+        <SalaryFilter
+          placeholder={'От'}
+          setPaymentSize={props.setPaymentFrom}
+        />
+        <SalaryFilter
+          placeholder={'До'}
+          setPaymentSize={props.setPaymentTo}
+        />
       </section>
-      <button>Применить</button>
+      <button onClick={() => props.getVacancies()}>Применить</button>
     </div>
   );
 }

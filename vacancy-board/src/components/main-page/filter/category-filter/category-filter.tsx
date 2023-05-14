@@ -3,8 +3,10 @@ import { getCatalogues } from '../../../../services/api';
 import { Catalogue } from '../../../../types/api';
 import { useEffect, useState } from 'react';
 
-export default function CategoryFilter() {
-  let [categories, setCategories] = useState<
+export default function CategoryFilter(props: {
+  setCategories: React.Dispatch<React.SetStateAction<string>>;
+}) {
+  let [categoriesList, setCategoriesList] = useState<
     { value: string; label: string }[]
   >([]);
 
@@ -19,16 +21,21 @@ export default function CategoryFilter() {
         };
       });
 
-      setCategories(categoriesData);
+      setCategoriesList(categoriesData);
     });
   }, []);
 
+  function handleSelect(values: string[]) {
+    const categories = values.join(',');
+    props.setCategories(categories);
+  }
+
   return (
     <MultiSelect
-      onChange={(value) => console.log(value)}
+      onChange={(value) => handleSelect(value)}
       size='md'
       radius={8}
-      data={categories}
+      data={categoriesList}
       placeholder='Выберите отрасль'
       styles={{
         searchInput: {

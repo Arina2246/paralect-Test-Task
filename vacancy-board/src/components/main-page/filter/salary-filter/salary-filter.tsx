@@ -1,9 +1,12 @@
 import { Image, NumberInput } from '@mantine/core';
 
-export default function SalaryFilter(props: { placeholder: string }) {
+export default function SalaryFilter(props: {
+  placeholder: string;
+  setPaymentSize: React.Dispatch<React.SetStateAction<string>>;
+}) {
   return (
     <NumberInput
-      onChange={(value) => console.log(value)}
+      onChange={(value) => props.setPaymentSize(value.toString())}
       size='md'
       radius={8}
       placeholder={props.placeholder}

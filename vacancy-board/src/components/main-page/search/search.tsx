@@ -1,9 +1,12 @@
 import { TextInput, Image, Button } from '@mantine/core';
 
-export default function Search() {
+export default function Search(props: {
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+  getVacancies: () => void;
+}) {
   return (
     <TextInput
-      onChange={(value) => console.log(value)}
+      onChange={(event) => props.setSearchValue(event.target.value)}
       icon={
         <Image
           src='search-icon.png'
@@ -26,6 +29,7 @@ export default function Search() {
       }}
       rightSection={
         <Button
+          onClick={() => props.getVacancies()}
           size='xs'
           radius={8}
           styles={{

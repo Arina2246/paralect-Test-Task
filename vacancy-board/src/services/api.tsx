@@ -49,7 +49,7 @@ async function validateTokenActivation() {
   }
 }
 
-export async function getVacancies(
+export async function getVacanciesData(
   keyword: string,
   paymentFrom: string,
   paymentTo: string,
@@ -59,7 +59,7 @@ export async function getVacancies(
 
   const authData = localStorage.getItem(AUTH_DATA_LOCALSTORAGE) as string;
   const authDataObject = JSON.parse(authData) as AuthData;
-  const url = `${URL_VACANCIES}/?published=${PUBLISHED}&keyword=${keyword}&payment_from=${paymentFrom}&payment_to=${paymentTo}&catalogues=${catalogues}`;
+  const url = `${URL_VACANCIES}/?published=${PUBLISHED}&keyword=${keyword}&payment_from=${paymentFrom}&payment_to=${paymentTo}&catalogues=${catalogues}&count=4`;
   const headers = {
     Authorization: `${authDataObject.type} ${authDataObject.token}`,
     ...REQUIRED_HEADERS,
