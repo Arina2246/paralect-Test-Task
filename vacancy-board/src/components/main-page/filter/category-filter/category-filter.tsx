@@ -30,6 +30,14 @@ export default function CategoryFilter() {
       radius={8}
       data={categories}
       placeholder='Выберите отрасль'
+      styles={{
+        searchInput: {
+          fontFamily: 'Inter',
+          fontWeight: 400,
+          fontSize: '14px',
+          lineHeight: '20px',
+        },
+      }}
       rightSection={
         <Image
           src='select-icon.png'

@@ -7,6 +7,14 @@ export default function SalaryFilter(props: { placeholder: string }) {
       size='md'
       radius={8}
       placeholder={props.placeholder}
+      styles={{
+        input: {
+          fontFamily: 'Inter',
+          fontWeight: 400,
+          fontSize: '14px',
+          lineHeight: '20px',
+        },
+      }}
       rightSection={
         <Image
           src='filter-icon.png'
