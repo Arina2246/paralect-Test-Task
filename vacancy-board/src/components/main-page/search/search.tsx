@@ -17,6 +17,7 @@ export default function Search() {
       placeholder={'Введите название вакансии'}
       styles={{
         input: {
+          border: '1px solid #EAEBED',
           fontFamily: 'Inter',
           fontWeight: 400,
           fontSize: '14px',

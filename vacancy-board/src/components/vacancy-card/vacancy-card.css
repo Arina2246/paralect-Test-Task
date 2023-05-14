@@ -1,0 +1,57 @@
+.vacancy-card {
+    position: relative;
+    font-family: 'Inter';
+    background: #FFFFFF;
+    color: #232134;
+    border: 1px solid #EAEBED;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 23px;
+    gap: 13px;
+    width: 773px;
+    height: 137px;
+    cursor: pointer;
+}
+
+.vacancy-card p {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #5E96FC;
+}
+
+.vacancy-card > section:nth-child(3) {
+    display: flex;
+    gap: 12px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.vacancy-card > section:nth-child(3) > span:first-child{
+    font-weight: 600;
+}
+
+.vacancy-card > section:nth-child(3) > span:nth-child(2){
+    color: #7B7C88;
+}
+
+.vacancy-card > section:last-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.vacancy-card > section img {
+    width: 20px;
+}
+
+.vacancy-card > img {
+    position: absolute;
+    width: 24px;
+    right: 24px;
+}
