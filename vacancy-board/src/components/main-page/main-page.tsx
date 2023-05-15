@@ -27,10 +27,10 @@ export default function MainPage() {
   }, [page]);
 
   function getVacancies(pageNumber: number, rstPagination: boolean) {
+    setLoading(true);
     if (rstPagination) {
       setResetPagination(resetPagination + 1);
     }
-    setLoading(true);
     getVacanciesData(
       searchValue,
       paymentFrom,
@@ -67,11 +67,14 @@ export default function MainPage() {
               return (
                 <VacancyCard
                   key={elem.id}
+                  id={elem.id}
                   profession={elem.profession}
                   paymentFrom={elem.paymentFrom}
                   paymentTo={elem.paymentTo}
                   workType={elem.workType}
+                  currency={elem.currency}
                   town={elem.town}
+                  template={elem.template}
                 />
               );
             })
@@ -92,5 +95,8 @@ export default function MainPage() {
 // клик на вакансию
 
 // добавление в избранное
-// сохранение фильтров
 // страничка избранное
+
+//добавить подсвечивание странички в not found and vacancy
+//раскинуть методы апи
+//переделать чек ап

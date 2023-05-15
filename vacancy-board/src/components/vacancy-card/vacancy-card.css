@@ -21,22 +21,22 @@
     width: 90%;
 }
 
-.vacancy-card > section:nth-child(3) {
+.vacancy-card .vacancy-card-salary {
     display: flex;
     gap: 12px;
     font-size: 16px;
     line-height: 20px;
 }
 
-.vacancy-card > section:nth-child(3) > span:first-child{
+.vacancy-card .vacancy-card-salary > span:first-child{
     font-weight: 600;
 }
 
-.vacancy-card > section:nth-child(3) > span:nth-child(2){
+.vacancy-card .vacancy-card-salary > span:nth-child(2){
     color: #7B7C88;
 }
 
-.vacancy-card > section:last-child {
+.vacancy-card .vacancy-card-location {
     display: flex;
     align-items: center;
     gap: 8px;

@@ -12,7 +12,12 @@ import {
   PUBLISHED,
 } from '../constants/api';
 import { VACANCIES_PER_PAGE } from '../constants/pagination';
-import { AuthData, AuthResponse, VacanciesResponse } from '../types/api';
+import {
+  AuthData,
+  AuthResponse,
+  VacanciesResponse,
+  VacancyResponse,
+} from '../types/api';
 import getPagesCount from './pagination';
 
 async function authorization() {
@@ -88,6 +93,39 @@ export async function getVacanciesData(
     });
     const pagesCount = getPagesCount(responseData.total);
     return { vacancies: vacanciesData, totalPages: pagesCount };
+  } catch (error: unknown) {
+    throw new Error();
+  }
+}
+
+export async function getVacancyById(id: string) {
+  await validateTokenActivation();
+
+  const authData = localStorage.getItem(AUTH_DATA_LOCALSTORAGE) as string;
+  const authDataObject = JSON.parse(authData) as AuthData;
+  const url = `${URL_VACANCIES}/${id}`;
+  const headers = {
+    Authorization: `${authDataObject.type} ${authDataObject.token}`,
+    ...REQUIRED_HEADERS,
+  };
+
+  try {
+    const response = await fetch(url, {
+      headers: headers,
+    });
+
+    const responseData = (await response.json()) as VacancyResponse;
+    const vacancyData = {
+      id: String(responseData.id),
+      profession: responseData.profession,
+      paymentTo: responseData.payment_to,
+      paymentFrom: responseData.payment_from,
+      workType: responseData.type_of_work.title,
+      town: responseData.town.title,
+      currency: responseData.currency,
+      template: responseData.vacancyRichText,
+    };
+    return vacancyData;
   } catch (error: unknown) {
     throw new Error();
   }

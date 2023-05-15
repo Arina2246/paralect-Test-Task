@@ -1,0 +1,63 @@
+.vacancy-page{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 773px;
+    margin: 40px auto;
+}
+
+.vacancy-page .vacancy-card {
+    gap: 16px;
+}
+
+.vacancy-page .vacancy-card p {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    color: #232134;
+}
+
+.vacancy-page  .vacancy-card .vacancy-card-salary {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.vacancy-card > .vacancy-card-salary > span:first-child{
+    font-weight: 700;
+}
+
+.vacancy-card > .vacancy-card-salary {
+    line-height: 22.4px;
+}
+
+.vacancy-template {
+    font-family: 'Inter';
+    background: #FFFFFF;
+    color: #232134;
+    border: 1px solid #EAEBED;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    width: 100%;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.vacancy-template ul{
+   margin: 0 25px;
+}
+
+.vacancy-template li, 
+.vacancy-template p,
+.vacancy-template span,
+.vacancy-template section{
+    margin: 10px 0;
+}
+
+ .vacancy-template p{
+    font-weight: 600;
+
+}
+
