@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import Header from '../header/header';
 import { getVacanciesData } from '../../services/api';
-import { VacancyResponse } from '../../types/api';
 import Filter from './filter/filter';
 import Search from './search/search';
 import VacancyCard from '../vacancy-card/vacancy-card';
 import { Vacancy } from '../../types/vacansy';
 import Loading from '../loading/loading';
 import { useNavigate } from 'react-router-dom';
+import Pagination from '../pagination/pagination';
 import './main.page.css';
 
 export default function MainPage() {
@@ -18,35 +18,33 @@ export default function MainPage() {
   const [paymentFrom, setPaymentFrom] = useState<string>('');
   const [paymentTo, setPaymentTo] = useState<string>('');
   const [searchValue, setSearchValue] = useState<string>('');
+  const [page, setPage] = useState<number>(0);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [resetPagination, setResetPagination] = useState<number>(0);
 
   useEffect(() => {
-    getVacancies();
-  }, []);
+    getVacancies(page, false);
+  }, [page]);
 
-  function getVacancies() {
+  function getVacancies(pageNumber: number, rstPagination: boolean) {
+    if (rstPagination) {
+      setResetPagination(resetPagination + 1);
+    }
     setLoading(true);
-    getVacanciesData(searchValue, paymentFrom, paymentTo, categories).then(
-      (data: VacancyResponse[]) => {
-        setLoading(false);
-        if (!data.length) {
-          console.log('j');
-          navigate('/404');
-        }
-        const vacanciesData = data.map((vacancy) => {
-          return {
-            id: String(vacancy.id),
-            profession: vacancy.profession,
-            paymentTo: vacancy.payment_to,
-            paymentFrom: vacancy.payment_from,
-            workType: vacancy.type_of_work.title,
-            town: vacancy.town.title,
-            currency: vacancy.currency,
-            template: vacancy.vacancyRichText,
-          };
-        });
-        setVacansies(vacanciesData);
+    getVacanciesData(
+      searchValue,
+      paymentFrom,
+      paymentTo,
+      categories,
+      String(pageNumber)
+    ).then((data: { vacancies: Vacancy[]; totalPages: number }) => {
+      setLoading(false);
+      if (!data.totalPages) {
+        navigate('/404');
       }
-    );
+      setTotalPages(data.totalPages);
+      setVacansies(data.vacancies);
+    });
   }
 
   return (
@@ -80,15 +78,19 @@ export default function MainPage() {
           ) : (
             <Loading />
           )}
+          <Pagination
+            setPage={setPage}
+            totalPages={totalPages}
+            resetPagination={resetPagination}
+          />
         </div>
       </div>
     </div>
   );
 }
 
-// пагинация
-
 // клик на вакансию
-// добавление в избранное
 
+// добавление в избранное
 // сохранение фильтров
+// страничка избранное

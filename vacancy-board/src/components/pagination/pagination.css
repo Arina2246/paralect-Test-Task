@@ -1,0 +1,42 @@
+ul[role=navigation]{
+    margin-top: 26px;
+    font-family: 'Inter';
+    line-height: 22px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    color: #232134;
+}
+
+ul[role=navigation] li{
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    list-style: none;
+    cursor: pointer;
+}
+
+ul[role=navigation] li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    list-style: none;
+    cursor: pointer;
+    background: #FFFFFF;
+    border: 1px solid #EAEBED;
+    align-items: center;
+}
+
+ul[role=navigation]  .page a{
+    border: 1px solid #D5D6DC;
+}
+
+ul[role=navigation] .active-page a{
+    color: #FFFFFF;
+    background-color: #5E96FC;
+}

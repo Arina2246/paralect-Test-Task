@@ -6,7 +6,7 @@ export default function Filter(props: {
   setCategories: React.Dispatch<React.SetStateAction<string>>;
   setPaymentFrom: React.Dispatch<React.SetStateAction<string>>;
   setPaymentTo: React.Dispatch<React.SetStateAction<string>>;
-  getVacancies: () => void;
+  getVacancies: (pageNumber: number, resetPagination: boolean) => void;
 }) {
   return (
     <div className='filter'>
@@ -35,7 +35,7 @@ export default function Filter(props: {
           setPaymentSize={props.setPaymentTo}
         />
       </section>
-      <button onClick={() => props.getVacancies()}>Применить</button>
+      <button onClick={() => props.getVacancies(0, true)}>Применить</button>
     </div>
   );
 }

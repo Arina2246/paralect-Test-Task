@@ -3,7 +3,7 @@
     margin: 40px auto;
     display: flex;
     gap: 28px;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .search-container{
@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 1300px)  and (min-width: 900px)  {
     .main-page-container {
-        width: 80%;;
+        width: 80%;
         justify-content: center;
     }
 }

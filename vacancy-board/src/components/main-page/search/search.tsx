@@ -2,7 +2,7 @@ import { TextInput, Image, Button } from '@mantine/core';
 
 export default function Search(props: {
   setSearchValue: React.Dispatch<React.SetStateAction<string>>;
-  getVacancies: () => void;
+  getVacancies: (pageNumber: number, resetPagination: boolean) => void;
 }) {
   return (
     <TextInput
@@ -29,7 +29,7 @@ export default function Search(props: {
       }}
       rightSection={
         <Button
-          onClick={() => props.getVacancies()}
+          onClick={() => props.getVacancies(0, true)}
           size='xs'
           radius={8}
           styles={{

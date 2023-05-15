@@ -1,0 +1,4 @@
+const VACANCIES_PER_PAGE = 4;
+const MAX_TOTAL = 500;
+
+export { VACANCIES_PER_PAGE, MAX_TOTAL };
