@@ -1,10 +1,11 @@
-import { Image, MultiSelect } from '@mantine/core';
+import { Image, Select } from '@mantine/core';
 import { getCatalogues } from '../../../../services/api';
 import { Catalogue } from '../../../../types/api';
 import { useEffect, useState } from 'react';
 
 export default function CategoryFilter(props: {
-  setCategories: React.Dispatch<React.SetStateAction<string>>;
+  category: string;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
 }) {
   let [categoriesList, setCategoriesList] = useState<
     { value: string; label: string }[]
@@ -25,20 +26,20 @@ export default function CategoryFilter(props: {
     });
   }, []);
 
-  const handleSelect = (values: string[]) => {
-    const categories = values.join(',');
-    props.setCategories(categories);
+  const handleSelect = (value: string | null) => {
+    value ? props.setCategory(value) : props.setCategory('');
   };
 
   return (
-    <MultiSelect
+    <Select
+      value={props.category}
       onChange={(value) => handleSelect(value)}
       size='md'
       radius={8}
       data={categoriesList}
       placeholder='Выберите отрасль'
       styles={{
-        searchInput: {
+        input: {
           fontFamily: 'Inter',
           fontWeight: 400,
           fontSize: '14px',

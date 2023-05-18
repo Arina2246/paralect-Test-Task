@@ -33,7 +33,7 @@ async function authorization() {
     const authData: AuthData = {
       token: responseData.access_token,
       type: responseData.token_type,
-      expiresIn: responseData.expires_in,
+      ttl: responseData.ttl,
     };
 
     localStorage.setItem(AUTH_DATA_LOCALSTORAGE, JSON.stringify(authData));
@@ -49,9 +49,9 @@ async function validateTokenActivation() {
     await authorization();
   } else {
     const data = JSON.parse(authData) as AuthData;
-    const { expiresIn } = data;
+    const { ttl } = data;
 
-    if (!expiresIn) {
+    if (ttl < Date.now() / 1000) {
       await authorization();
     }
   }

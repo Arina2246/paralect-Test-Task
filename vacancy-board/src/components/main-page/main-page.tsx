@@ -14,7 +14,7 @@ export default function MainPage() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
   const [vacancies, setVacansies] = useState<Vacancy[]>([]);
-  const [categories, setCategories] = useState<string>('');
+  const [category, setCategory] = useState<string>('');
   const [paymentFrom, setPaymentFrom] = useState<string>('');
   const [paymentTo, setPaymentTo] = useState<string>('');
   const [searchValue, setSearchValue] = useState<string>('');
@@ -35,7 +35,7 @@ export default function MainPage() {
       searchValue,
       paymentFrom,
       paymentTo,
-      categories,
+      category,
       String(pageNumber)
     ).then((data: { vacancies: Vacancy[]; totalPages: number }) => {
       setLoading(false);
@@ -52,7 +52,10 @@ export default function MainPage() {
       <Header></Header>
       <div className='main-page-container'>
         <Filter
-          setCategories={setCategories}
+          category={category}
+          paymentFrom={paymentFrom}
+          paymentTo={paymentTo}
+          setCategory={setCategory}
           setPaymentFrom={setPaymentFrom}
           setPaymentTo={setPaymentTo}
           getVacancies={getVacancies}
@@ -93,7 +96,9 @@ export default function MainPage() {
 }
 
 //добавить подсвечивание странички в not found and vacancy
-//раскинуть методы апи
-//переделать чек ап
-
 //картинки в фильтрах
+
+//раскинуть методы апи
+// создать кастомный хук
+
+//чистка кода

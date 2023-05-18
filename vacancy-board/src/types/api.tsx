@@ -10,7 +10,7 @@ type AuthResponse = {
 type AuthData = {
   token: string;
   type: string;
-  expiresIn: number;
+  ttl: number;
 };
 
 type VacancyResponse = {
