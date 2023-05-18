@@ -22,7 +22,7 @@ export default function FavoritesPage() {
       const favoritesPerPage = getFavoritesPerPage(favoritesList);
       setFavorites(favoritesPerPage);
     } else {
-      navigate('/404');
+      navigate('/favorites/404');
     }
   }, [page]);
 

@@ -1,3 +1,6 @@
+import starIcon from '../../assets/star-icon.png';
+import filledStarIcon from '../../assets/filled-star-icon.png';
+import locationIcon from '../../assets/location-icon.png';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Vacancy } from '../../types/vacansy';
@@ -36,14 +39,14 @@ export default function VacancyCard(props: Vacancy) {
   return (
     <div
       className='vacancy-card'
-      onClick={() => navigate(`/${props.id}`)}
+      onClick={() => navigate(`/main/${props.id}`)}
     >
       {favorite ? (
         <img
           onClick={(event) => {
             handleFavoritesClick(event);
           }}
-          src='filled-star-icon.png'
+          src={filledStarIcon}
           alt='filled-star-icon'
         />
       ) : (
@@ -51,7 +54,7 @@ export default function VacancyCard(props: Vacancy) {
           onClick={(event) => {
             handleFavoritesClick(event);
           }}
-          src='star-icon.png'
+          src={starIcon}
           alt='star-icon'
         />
       )}
@@ -63,7 +66,7 @@ export default function VacancyCard(props: Vacancy) {
       </section>
       <section className='vacancy-card-location'>
         <img
-          src='location-icon.png'
+          src={locationIcon}
           alt='location-icon'
         />
         <span>{props.town}</span>

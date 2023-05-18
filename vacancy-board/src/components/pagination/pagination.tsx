@@ -1,3 +1,5 @@
+import nextPageIcon from '../../assets/next-page-icon.png';
+import prevPageIcon from '../../assets/prev-page-icon.png';
 import ReactPaginate from 'react-paginate';
 import './pagination.css';
 
@@ -13,9 +15,15 @@ export default function Pagination(props: {
     <ReactPaginate
       key={props.resetPagination}
       breakLabel=''
+      previousLabel={
+        <img
+          src={prevPageIcon}
+          alt='prev-page'
+        />
+      }
       nextLabel={
         <img
-          src='next-page-icon.png'
+          src={nextPageIcon}
           alt='next-page'
         />
       }
@@ -25,12 +33,6 @@ export default function Pagination(props: {
       activeClassName='active-page'
       pageClassName='page'
       pageCount={props.totalPages}
-      previousLabel={
-        <img
-          src='prev-page-icon.png'
-          alt='prev-page'
-        />
-      }
     />
   );
 }

@@ -1,3 +1,4 @@
+import searchIcon from '../../../assets/search-icon.png';
 import { TextInput, Image, Button } from '@mantine/core';
 
 export default function Search(props: {
@@ -9,7 +10,7 @@ export default function Search(props: {
       onChange={(event) => props.setSearchValue(event.target.value)}
       icon={
         <Image
-          src='search-icon.png'
+          src={searchIcon}
           alt='search-icon.png'
           width={16}
         />

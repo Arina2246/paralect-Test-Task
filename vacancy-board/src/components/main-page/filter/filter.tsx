@@ -1,3 +1,4 @@
+import closeIcon from '../../../assets/close-icon.png';
 import CategoryFilter from './category-filter/category-filter';
 import SalaryFilter from './salary-filter/salary-filter';
 import './filter.css';
@@ -39,7 +40,7 @@ export default function Filter(props: {
         <button onClick={() => handleReset()}>
           <span>Сбросить все </span>
           <img
-            src='close-icon.png'
+            src={closeIcon}
             alt='close-icon'
           />
         </button>

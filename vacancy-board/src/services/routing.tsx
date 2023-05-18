@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 import MainPage from '../components/main-page/main-page';
 import FavoritesPage from '../components/favorites-page/favorites-page';
 import NotFound from '../components/not-found/not-found';
@@ -17,19 +17,33 @@ export const router = createBrowserRouter(
     },
     {
       path: '/favorites',
-      element: <FavoritesPage />,
+      children: [
+        {
+          index: true,
+          element: <FavoritesPage />,
+        },
+        {
+          path: '404',
+          element: <NotFound />,
+        },
+      ],
     },
     {
       path: '/main',
-      element: <MainPage />,
-    },
-    {
-      path: '/:id',
-      element: <VacancyPage />,
-    },
-    {
-      path: '/404',
-      element: <NotFound />,
+      children: [
+        {
+          index: true,
+          element: <MainPage />,
+        },
+        {
+          path: '404',
+          element: <NotFound />,
+        },
+        {
+          path: ':id',
+          element: <VacancyPage />,
+        },
+      ],
     },
   ],
   { basename: '/paralect-Test-Task' }

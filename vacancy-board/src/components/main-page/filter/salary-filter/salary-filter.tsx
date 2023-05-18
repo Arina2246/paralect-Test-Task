@@ -1,3 +1,4 @@
+import filterIcon from '../../../../assets/filter-icon.png';
 import { Image, NumberInput } from '@mantine/core';
 
 export default function SalaryFilter(props: {
@@ -22,7 +23,7 @@ export default function SalaryFilter(props: {
       }}
       rightSection={
         <Image
-          src='filter-icon.png'
+          src={filterIcon}
           alt='filter-icon'
           width={12}
         />

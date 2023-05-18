@@ -1,3 +1,4 @@
+import selectIcon from '../../../../assets/select-icon.png';
 import { Image, Select } from '@mantine/core';
 import { getCatalogues } from '../../../../services/api';
 import { Catalogue } from '../../../../types/api';
@@ -48,7 +49,7 @@ export default function CategoryFilter(props: {
       }}
       rightSection={
         <Image
-          src='select-icon.png'
+          src={selectIcon}
           alt='select-icon'
           width={25}
         />

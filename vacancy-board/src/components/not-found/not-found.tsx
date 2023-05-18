@@ -1,3 +1,4 @@
+import notFoundIcon from '../../assets/not-found.png';
 import { NavLink } from 'react-router-dom';
 import './not-found.css';
 import Header from '../header/header';
@@ -8,7 +9,7 @@ export default function NotFound() {
       <Header />
       <div className='not-found'>
         <img
-          src='not-found.png'
+          src={notFoundIcon}
           alt='not-found'
         />
         <p>Упс, здесь еще ничего нет!</p>

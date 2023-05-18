@@ -6,7 +6,7 @@ import Search from './search/search';
 import VacancyCard from '../vacancy-card/vacancy-card';
 import { Vacancy } from '../../types/vacansy';
 import Loading from '../loading/loading';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Pagination from '../pagination/pagination';
 import './main.page.css';
 
@@ -40,7 +40,7 @@ export default function MainPage() {
     ).then((data: { vacancies: Vacancy[]; totalPages: number }) => {
       setLoading(false);
       if (!data.totalPages) {
-        navigate('/404');
+        navigate('/main/404');
       }
       setTotalPages(data.totalPages);
       setVacansies(data.vacancies);
@@ -50,6 +50,7 @@ export default function MainPage() {
   return (
     <div className='main-page'>
       <Header></Header>
+      <Outlet />
       <div className='main-page-container'>
         <Filter
           category={category}
@@ -95,8 +96,10 @@ export default function MainPage() {
   );
 }
 
-//добавить подсвечивание странички в not found and vacancy
 //картинки в фильтрах
+
+//деструктуризация пропсов
+// обернуть в коллбэк ресет
 
 //раскинуть методы апи
 // создать кастомный хук

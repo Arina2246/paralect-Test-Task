@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import Logo from '../../assets/logo-icon.png';
 import './header.css';
 
 export default function Header() {
@@ -6,7 +7,7 @@ export default function Header() {
     <header>
       <div>
         <img
-          src='icon.png'
+          src={Logo}
           alt='icon'
         />
         <span>Jobored</span>
