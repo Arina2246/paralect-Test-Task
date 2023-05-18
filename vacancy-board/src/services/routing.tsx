@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import MainPage from '../components/main-page/main-page';
 import FavoritesPage from '../components/favorites-page/favorites-page';
 import NotFound from '../components/not-found/not-found';

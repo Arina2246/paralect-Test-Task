@@ -1,37 +1,39 @@
+import { useCallback, useEffect, useState } from 'react';
 import closeIcon from '../../../assets/close-icon.png';
 import CategoryFilter from './category-filter/category-filter';
 import SalaryFilter from './salary-filter/salary-filter';
+import { FilterProps } from '../../../types/props';
 import './filter.css';
-import { useEffect, useState } from 'react';
 
-export default function Filter(props: {
-  category: string;
-  paymentFrom: string;
-  paymentTo: string;
-  setCategory: React.Dispatch<React.SetStateAction<string>>;
-  setPaymentFrom: React.Dispatch<React.SetStateAction<string>>;
-  setPaymentTo: React.Dispatch<React.SetStateAction<string>>;
-  getVacancies: (pageNumber: number, resetPagination: boolean) => void;
-}) {
+export default function Filter({
+  category,
+  paymentFrom,
+  paymentTo,
+  setCategory,
+  setPaymentFrom,
+  setPaymentTo,
+  getVacancies,
+}: FilterProps) {
   const [resetFilter, setResetFilter] = useState(false);
+
   useEffect(() => {
     if (
       resetFilter &&
-      props.category === '' &&
-      props.paymentFrom === '' &&
-      props.paymentTo === ''
+      category === '' &&
+      paymentFrom === '' &&
+      paymentTo === ''
     ) {
-      props.getVacancies(0, true);
+      getVacancies(0, true);
       setResetFilter(false);
     }
-  }, [props, resetFilter]);
+  }, [category, paymentFrom, paymentTo, resetFilter, getVacancies]);
 
-  function handleReset() {
-    props.setCategory('');
-    props.setPaymentTo('');
-    props.setPaymentFrom('');
+  const handleReset = useCallback(() => {
+    setCategory('');
+    setPaymentTo('');
+    setPaymentFrom('');
     setResetFilter(true);
-  }
+  }, [setCategory, setPaymentFrom, setPaymentTo]);
 
   return (
     <div className='filter'>
@@ -48,24 +50,24 @@ export default function Filter(props: {
       <section>
         <span>Отрасль</span>
         <CategoryFilter
-          category={props.category}
-          setCategory={props.setCategory}
+          category={category}
+          setCategory={setCategory}
         />
       </section>
       <section>
         <span>Оклад</span>
         <SalaryFilter
           placeholder={'От'}
-          paymentSize={props.paymentFrom}
-          setPaymentSize={props.setPaymentFrom}
+          paymentSize={paymentFrom}
+          setPaymentSize={setPaymentFrom}
         />
         <SalaryFilter
           placeholder={'До'}
-          paymentSize={props.paymentTo}
-          setPaymentSize={props.setPaymentTo}
+          paymentSize={paymentTo}
+          setPaymentSize={setPaymentTo}
         />
       </section>
-      <button onClick={() => props.getVacancies(0, true)}>Применить</button>
+      <button onClick={() => getVacancies(0, true)}>Применить</button>
     </div>
   );
 }

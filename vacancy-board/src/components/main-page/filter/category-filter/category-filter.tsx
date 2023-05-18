@@ -2,13 +2,14 @@ import selectIcon from '../../../../assets/select-icon.png';
 import { Image, Select } from '@mantine/core';
 import { getCatalogues } from '../../../../services/api';
 import { Catalogue } from '../../../../types/api';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { CategoryFilterProps } from '../../../../types/props';
 
-export default function CategoryFilter(props: {
-  category: string;
-  setCategory: React.Dispatch<React.SetStateAction<string>>;
-}) {
-  let [categoriesList, setCategoriesList] = useState<
+export default function CategoryFilter({
+  category,
+  setCategory,
+}: CategoryFilterProps) {
+  const [categoriesList, setCategoriesList] = useState<
     { value: string; label: string }[]
   >([]);
 
@@ -27,13 +28,16 @@ export default function CategoryFilter(props: {
     });
   }, []);
 
-  const handleSelect = (value: string | null) => {
-    value ? props.setCategory(value) : props.setCategory('');
-  };
+  const handleSelect = useCallback(
+    (value: string | null) => {
+      value ? setCategory(value) : setCategory('');
+    },
+    [setCategory]
+  );
 
   return (
     <Select
-      value={props.category}
+      value={category}
       onChange={(value) => handleSelect(value)}
       size='md'
       radius={8}

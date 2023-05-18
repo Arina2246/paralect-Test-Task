@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from '../header/header';
 import { Vacancy } from '../../types/vacansy';
-import { getFavorites } from '../../services/favorites';
+import { getFavorites, getFavoritesPerPage } from '../../services/favorites';
 import { useNavigate } from 'react-router-dom';
 import VacancyCard from '../vacancy-card/vacancy-card';
 import './favorites-page.css';
@@ -19,21 +19,12 @@ export default function FavoritesPage() {
     const favoritesList = getFavorites() as Vacancy[];
     if (favoritesList && favoritesList.length) {
       setTotalPages(getPagesCount(favoritesList.length));
-      const favoritesPerPage = getFavoritesPerPage(favoritesList);
+      const favoritesPerPage = getFavoritesPerPage(page, favoritesList);
       setFavorites(favoritesPerPage);
     } else {
       navigate('/favorites/404');
     }
   }, [page]);
-
-  const getFavoritesPerPage = (vacancies: Vacancy[]) => {
-    const pageStart = page * VACANCIES_PER_PAGE;
-    const favoritesPerPage = vacancies.slice(
-      pageStart,
-      pageStart + VACANCIES_PER_PAGE
-    );
-    return favoritesPerPage;
-  };
 
   return (
     <>

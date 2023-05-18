@@ -1,4 +1,5 @@
 import { FAVORITES_LOCALSTORAGE } from '../constants/favorites';
+import { VACANCIES_PER_PAGE } from '../constants/pagination';
 import { Vacancy } from '../types/vacansy';
 
 export const addFavorites = (vacancy: Vacancy) => {
@@ -37,4 +38,13 @@ export const checkFavorite = (id: string) => {
   } else {
     return false;
   }
+};
+
+export const getFavoritesPerPage = (page: number, vacancies: Vacancy[]) => {
+  const pageStart = page * VACANCIES_PER_PAGE;
+  const favoritesPerPage = vacancies.slice(
+    pageStart,
+    pageStart + VACANCIES_PER_PAGE
+  );
+  return favoritesPerPage;
 };

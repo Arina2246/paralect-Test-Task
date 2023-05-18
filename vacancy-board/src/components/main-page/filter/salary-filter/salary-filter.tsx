@@ -1,18 +1,19 @@
 import filterIcon from '../../../../assets/filter-icon.png';
 import { Image, NumberInput } from '@mantine/core';
+import { SalaryFilterProps } from '../../../../types/props';
 
-export default function SalaryFilter(props: {
-  paymentSize: string;
-  placeholder: string;
-  setPaymentSize: React.Dispatch<React.SetStateAction<string>>;
-}) {
+export default function SalaryFilter({
+  paymentSize,
+  placeholder,
+  setPaymentSize,
+}: SalaryFilterProps) {
   return (
     <NumberInput
-      value={props.paymentSize === '' ? '' : Number(props.paymentSize)}
-      onChange={(value) => props.setPaymentSize(value.toString())}
+      value={paymentSize === '' ? '' : Number(paymentSize)}
+      onChange={(value) => setPaymentSize(value.toString())}
       size='md'
       radius={8}
-      placeholder={props.placeholder}
+      placeholder={placeholder}
       styles={{
         input: {
           fontFamily: 'Inter',

@@ -18,7 +18,7 @@ export default function VacancyPage() {
       setLoading(false);
       setVacancy(data);
     });
-  }, []);
+  }, [id]);
 
   return (
     <>

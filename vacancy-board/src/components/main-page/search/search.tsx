@@ -1,13 +1,11 @@
 import searchIcon from '../../../assets/search-icon.png';
 import { TextInput, Image, Button } from '@mantine/core';
+import { SearchProps } from '../../../types/props';
 
-export default function Search(props: {
-  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
-  getVacancies: (pageNumber: number, resetPagination: boolean) => void;
-}) {
+export default function Search({ setSearchValue, getVacancies }: SearchProps) {
   return (
     <TextInput
-      onChange={(event) => props.setSearchValue(event.target.value)}
+      onChange={(event) => setSearchValue(event.target.value)}
       icon={
         <Image
           src={searchIcon}
@@ -30,7 +28,7 @@ export default function Search(props: {
       }}
       rightSection={
         <Button
-          onClick={() => props.getVacancies(0, true)}
+          onClick={() => getVacancies(0, true)}
           size='xs'
           radius={8}
           styles={{
