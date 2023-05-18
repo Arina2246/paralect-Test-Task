@@ -1,0 +1,15 @@
+.favorites-page {
+    margin: 40px auto;
+    display: flex;
+    width: 773px;
+    gap: 8px;
+    flex-direction: column;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .favorites-page {
+        width: 90%;
+    }
+}

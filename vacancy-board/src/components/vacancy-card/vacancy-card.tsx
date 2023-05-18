@@ -3,22 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import { Vacancy } from '../../types/vacansy';
 import './vacancy-card.css';
 import {
-  addFavourites,
-  checkFavourite,
-  removeFavourites,
-} from '../../services/favourites';
+  addFavorites,
+  checkFavorite,
+  removeFavorites,
+} from '../../services/favorites';
 
 export default function VacancyCard(props: Vacancy) {
   const navigate = useNavigate();
   const [salary, setSalary] = useState('');
-  const [favourite, setFavourite] = useState(false);
+  const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
-    const favouriteValue = checkFavourite(props.id);
-    setFavourite(favouriteValue);
-    if (!props.paymentFrom && !props.paymentTo) {
-      setSalary('не указана');
-    } else if (props.paymentFrom && props.paymentTo) {
+    const favoriteValue = checkFavorite(props.id);
+    setFavorite(favoriteValue);
+    if (props.paymentFrom && props.paymentTo) {
       setSalary(`${props.paymentFrom} - ${props.paymentTo} ${props.currency}`);
     } else if (props.paymentFrom) {
       setSalary(`от ${props.paymentFrom} ${props.currency}`);
@@ -27,23 +25,23 @@ export default function VacancyCard(props: Vacancy) {
     }
   }, [props]);
 
-  function handleFavouritesClick(
+  const handleFavoritesClick = (
     event: React.MouseEvent<HTMLImageElement, MouseEvent>
-  ) {
+  ) => {
     event.stopPropagation();
-    !favourite ? addFavourites(props) : removeFavourites(props.id);
-    setFavourite(!favourite);
-  }
+    !favorite ? addFavorites(props) : removeFavorites(props.id);
+    setFavorite(!favorite);
+  };
 
   return (
     <div
       className='vacancy-card'
       onClick={() => navigate(`/${props.id}`)}
     >
-      {favourite ? (
+      {favorite ? (
         <img
           onClick={(event) => {
-            handleFavouritesClick(event);
+            handleFavoritesClick(event);
           }}
           src='filled-star-icon.png'
           alt='filled-star-icon'
@@ -51,7 +49,7 @@ export default function VacancyCard(props: Vacancy) {
       ) : (
         <img
           onClick={(event) => {
-            handleFavouritesClick(event);
+            handleFavoritesClick(event);
           }}
           src='star-icon.png'
           alt='star-icon'

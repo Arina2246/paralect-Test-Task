@@ -10,6 +10,7 @@ import {
   AUTH_DATA_LOCALSTORAGE,
   REQUIRED_HEADERS,
   PUBLISHED,
+  NO_AGREEMENT,
 } from '../constants/api';
 import { VACANCIES_PER_PAGE } from '../constants/pagination';
 import {
@@ -18,7 +19,7 @@ import {
   VacanciesResponse,
   VacancyResponse,
 } from '../types/api';
-import getPagesCount from './pagination';
+import { getPagesCount } from './pagination';
 
 async function authorization() {
   const url = `${URL_AUTH}/?login=${LOGIN}&password=${PASSWORD}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&hr=${HR}`;
@@ -67,7 +68,7 @@ export async function getVacanciesData(
 
   const authData = localStorage.getItem(AUTH_DATA_LOCALSTORAGE) as string;
   const authDataObject = JSON.parse(authData) as AuthData;
-  const url = `${URL_VACANCIES}/?published=${PUBLISHED}&keyword=${keyword}&payment_from=${paymentFrom}&payment_to=${paymentTo}&catalogues=${catalogues}&count=${VACANCIES_PER_PAGE}&page=${page}`;
+  const url = `${URL_VACANCIES}/?published=${PUBLISHED}&no_agreement=${NO_AGREEMENT}&keyword=${keyword}&payment_from=${paymentFrom}&payment_to=${paymentTo}&catalogues=${catalogues}&count=${VACANCIES_PER_PAGE}&page=${page}`;
   const headers = {
     Authorization: `${authDataObject.type} ${authDataObject.token}`,
     ...REQUIRED_HEADERS,

@@ -13,7 +13,7 @@ export default function Header() {
       </div>
       <nav>
         <NavLink to='/main'>Поиск Вакансий</NavLink>
-        <NavLink to='/favourites'>Избранное</NavLink>
+        <NavLink to='/favorites'>Избранное</NavLink>
       </nav>
     </header>
   );

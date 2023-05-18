@@ -26,7 +26,7 @@ export default function MainPage() {
     getVacancies(page, false);
   }, [page]);
 
-  function getVacancies(pageNumber: number, rstPagination: boolean) {
+  const getVacancies = (pageNumber: number, rstPagination: boolean) => {
     setLoading(true);
     if (rstPagination) {
       setResetPagination(resetPagination + 1);
@@ -45,7 +45,7 @@ export default function MainPage() {
       setTotalPages(data.totalPages);
       setVacansies(data.vacancies);
     });
-  }
+  };
 
   return (
     <div className='main-page'>
@@ -91,8 +91,6 @@ export default function MainPage() {
     </div>
   );
 }
-
-// страничка избранное
 
 //добавить подсвечивание странички в not found and vacancy
 //раскинуть методы апи

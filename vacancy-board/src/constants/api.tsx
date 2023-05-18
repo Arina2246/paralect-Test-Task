@@ -12,6 +12,7 @@ const HR = '0';
 const AUTH_DATA_LOCALSTORAGE = 'authData';
 
 const PUBLISHED = '1';
+const NO_AGREEMENT = '1';
 
 const HEADER_SECRET_KEY = 'GEU4nvd3rej*jeh.eqp';
 const REQUIRED_HEADERS = {
@@ -31,5 +32,6 @@ export {
   HR,
   AUTH_DATA_LOCALSTORAGE,
   PUBLISHED,
+  NO_AGREEMENT,
   REQUIRED_HEADERS,
 };

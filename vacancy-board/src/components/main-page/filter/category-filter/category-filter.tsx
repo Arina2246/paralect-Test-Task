@@ -25,10 +25,10 @@ export default function CategoryFilter(props: {
     });
   }, []);
 
-  function handleSelect(values: string[]) {
+  const handleSelect = (values: string[]) => {
     const categories = values.join(',');
     props.setCategories(categories);
-  }
+  };
 
   return (
     <MultiSelect
