@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/paralect-Test-Task/static/css/main.a8229855.css",
-    "main.js": "/paralect-Test-Task/static/js/main.36e5b3d7.js",
+    "main.js": "/paralect-Test-Task/static/js/main.33521b0c.js",
     "static/media/not-found.png": "/paralect-Test-Task/static/media/not-found.eb3718ec8ad83e76e69d.png",
     "index.html": "/paralect-Test-Task/index.html",
     "main.a8229855.css.map": "/paralect-Test-Task/static/css/main.a8229855.css.map",
-    "main.36e5b3d7.js.map": "/paralect-Test-Task/static/js/main.36e5b3d7.js.map"
+    "main.33521b0c.js.map": "/paralect-Test-Task/static/js/main.33521b0c.js.map"
   },
   "entrypoints": [
     "static/css/main.a8229855.css",
-    "static/js/main.36e5b3d7.js"
+    "static/js/main.33521b0c.js"
   ]
 }
