@@ -37,7 +37,7 @@ async function authorization() {
     };
 
     localStorage.setItem(AUTH_DATA_LOCALSTORAGE, JSON.stringify(authData));
-  } catch (error: unknown) {
+  } catch (error) {
     throw new Error();
   }
 }
@@ -94,7 +94,7 @@ export async function getVacanciesData(
     });
     const pagesCount = getPagesCount(responseData.total);
     return { vacancies: vacanciesData, totalPages: pagesCount };
-  } catch (error: unknown) {
+  } catch (error) {
     throw new Error();
   }
 }
@@ -127,7 +127,7 @@ export async function getVacancyById(id: string) {
       template: responseData.vacancyRichText,
     };
     return vacancyData;
-  } catch (error: unknown) {
+  } catch (error) {
     throw new Error();
   }
 }
@@ -138,7 +138,7 @@ export async function getCatalogues() {
       headers: REQUIRED_HEADERS,
     });
     return response.json();
-  } catch (error: unknown) {
+  } catch (error) {
     throw new Error();
   }
 }
