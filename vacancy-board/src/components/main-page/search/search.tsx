@@ -5,6 +5,7 @@ import { SearchProps } from '../../../types/props';
 export default function Search({ setSearchValue, getVacancies }: SearchProps) {
   return (
     <TextInput
+      data-elem='search-input'
       onChange={(event) => setSearchValue(event.target.value)}
       icon={
         <Image
@@ -28,6 +29,7 @@ export default function Search({ setSearchValue, getVacancies }: SearchProps) {
       }}
       rightSection={
         <Button
+          data-elem='search-button'
           onClick={() => getVacancies(0, true)}
           size='xs'
           radius={8}

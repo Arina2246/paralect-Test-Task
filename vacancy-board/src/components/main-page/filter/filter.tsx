@@ -57,12 +57,14 @@ export default function Filter({
       <section>
         <span>Оклад</span>
         <SalaryFilter
-          placeholder={'От'}
+          dataElem='salary-from-input'
+          placeholder='От'
           paymentSize={paymentFrom}
           setPaymentSize={setPaymentFrom}
         />
         <SalaryFilter
-          placeholder={'До'}
+          dataElem='salary-to-input'
+          placeholder='До'
           paymentSize={paymentTo}
           setPaymentSize={setPaymentTo}
         />

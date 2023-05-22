@@ -37,6 +37,7 @@ export default function CategoryFilter({
 
   return (
     <Select
+      data-elem='industry-select'
       value={category}
       onChange={(value) => handleSelect(value)}
       size='md'

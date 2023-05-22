@@ -6,9 +6,11 @@ export default function SalaryFilter({
   paymentSize,
   placeholder,
   setPaymentSize,
+  dataElem,
 }: SalaryFilterProps) {
   return (
     <NumberInput
+      data-elem={dataElem}
       value={paymentSize === '' ? '' : Number(paymentSize)}
       onChange={(value) => setPaymentSize(value.toString())}
       size='md'

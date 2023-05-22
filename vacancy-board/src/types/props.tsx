@@ -17,6 +17,7 @@ export type SalaryFilterProps = {
   paymentSize: string;
   placeholder: string;
   setPaymentSize: React.Dispatch<React.SetStateAction<string>>;
+  dataElem: string;
 };
 
 export type SearchProps = {

@@ -58,11 +58,13 @@ export default function VacancyCard({
 
   return (
     <div
+      data-elem={`vacancy-${id}`}
       className='vacancy-card'
       onClick={() => navigate(`/main/${id}`)}
     >
       {favorite ? (
         <img
+          data-elem={`vacancy-${id}-shortlist-button`}
           onClick={(event) => {
             handleFavoritesClick(event);
           }}
@@ -71,6 +73,7 @@ export default function VacancyCard({
         />
       ) : (
         <img
+          data-elem={`vacancy-${id}-shortlist-button`}
           onClick={(event) => {
             handleFavoritesClick(event);
           }}
